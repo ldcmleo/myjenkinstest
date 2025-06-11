@@ -33,7 +33,15 @@ pipeline {
                     // si el SCM está configurado en el Job.
                     // Si tu repo es privado y necesitas credenciales específicas para clonar,
                     // puedes usar: git branch: 'main', credentialsId: 'your-github-cred-id'
+                    checkout scm
                 }
+            }
+        }
+
+        stage('Debug Path') {
+            steps {
+                sh 'pwd'
+                sh 'ls -F'
             }
         }
 
